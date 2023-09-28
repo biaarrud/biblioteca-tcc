@@ -1,0 +1,13 @@
+li{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+.box-emprestimo{
+    display: flex;
+    gap: 30px;
+
+}
