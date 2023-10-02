@@ -16,7 +16,6 @@ include("db/conexao.php")
 </head>
 
 <body class="bg-dark" >
-    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     <header class="container-fluid bg-dark">
         <nav class="navbar navbar-expand-lg bg-secondary rounded">
             <div class="container-fluid bg-secondary">

@@ -22,7 +22,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="sinopseLeitura">Sinopse</label>
-                <input type="text" class="form-control" name="sinopseLeitura" id="sinopseLeitura" value="<?= $dados["sinopseLeitura"] ?>">
+                <textarea class="form-control" name="sinopseLeitura" id="sinopseLeitura" cols="30" rows="10"><?=$dados["sinopseLeitura"]?></textarea>
             </div>
             <div class="input-group mb-3" >
                 <label class="input-group-text" for="idGeneroLeitura">Gênero</label>
