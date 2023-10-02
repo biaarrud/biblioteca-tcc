@@ -17,7 +17,7 @@
                     <label class="form-label" for="sinopse">Sinopse</label>
                     <textarea class="form-control" name="sinopse" cols="30" rows="5"></textarea>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group mb-5">
                     <label class="input-group-text" for="idGeneroLeitura">Gênero</label>
                     <select class="form-select" name="idGeneroLeitura" id="idGeneroLeitura">
                         <option value="">Selecione um gênero</option>
@@ -34,7 +34,7 @@
                         ?>
                     </select>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group mb-5">
                     <label class="input-group-text" for="idAutor">Autor</label>
                     <select class="form-select" name="idAutor" id="idAutor">
                         <option value="">Selecione um autor</option>

@@ -24,7 +24,7 @@
                 <label class="form-label" for="sinopseLeitura">Sinopse</label>
                 <textarea class="form-control" name="sinopseLeitura" id="sinopseLeitura" cols="30" rows="10"><?=$dados["sinopseLeitura"]?></textarea>
             </div>
-            <div class="input-group mb-3" >
+            <div class="input-group mb-5" >
                 <label class="input-group-text" for="idGeneroLeitura">Gênero</label>
                 <select class="form-select" name="idGeneroLeitura" id="idGeneroLeitura">
                     <option value="">selecione um Gênero</option>
@@ -42,7 +42,7 @@
                     ?>
                 </select>
             </div>
-            <div class="input-group mb-3" >
+            <div class="input-group mb-5" >
                 <label class="input-group-text" for="idAutor">Autor</label>
                 <select class="form-select" name="idAutor" id="idAutor">
                     <option value="">selecione um Autor</option>
@@ -79,7 +79,7 @@
                 </select>
             </div>
             <div class="d-grid gap-2 col-3 mx-auto">
-                <input class="btn btn-primary" type="submit" value="atualizar">
+                <input class="btn btn-primary" type="submit" value="Salvar">
             </div>
         </form>
     </div>

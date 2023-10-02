@@ -84,7 +84,7 @@ if ($linha > 0) {
         <form action="" method="get">
             <div class="mb-3">
                 <input type="hidden" class="form-control" name="menu" value="emprestimos">
-                <div class="input-group">
+                <div class="input-group mb-5">
                     <label class="input-group-text" for="idCliente">Selecione um cliente</label>
                     <select class="form-select" name="idCliente" id="idCliente">
                         <option value="">Selecione</option>
@@ -189,7 +189,7 @@ if ($idCliente > 0) {
                         <input class="form-control" type="hidden" name="idEmprestimo" value="<?= $idEmprestimo ?>">
                         <input class="form-control" type="hidden" name="idCliente" value="<?= $idCliente ?>">
                         <input class="form-control" type="hidden" name="menuEmprestimos" value="addLeitura">
-                        <div class="input-group">
+                        <div class="input-group mb-5">
                             <div class="input-group-text">Selecione um título</div>
                             <select class="form-select" name="idLeitura" id="idLeitura">
                                 <option value=""></option>

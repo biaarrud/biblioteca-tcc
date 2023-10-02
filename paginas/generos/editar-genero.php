@@ -24,7 +24,7 @@
                     value="<?= $dados["descricaoGeneroLeitura"] ?>">
             </div>
             <div class="d-grid gap-2 col-3 mx-auto">
-                <input class="btn btn-primary" type="submit" value="Atualizar">
+                <input class="btn btn-primary" type="submit" value="Salvar">
             </div>
         </form>
     </div>

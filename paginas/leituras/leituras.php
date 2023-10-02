@@ -22,7 +22,7 @@
             ?>
         </div>
         <form action="" method="post">
-        <div class="input-group">
+        <div class="input-group mb-5">
             <div class="input-group-text">Pesquisar</div>
             <input class="form-control" type="search" name="txtPesquisa" id="txtPesquisa" value="<?= $txtPesquisa ?>">
             <button type="submit" class="btn btn-secondary">

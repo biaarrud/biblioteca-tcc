@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3">
             <form action="" method="post">
-                <div class="input-group">
+                <div class="input-group mb-5">
                     <label class="input-group-text" for="">Pesquisar</label>
                     <input type="search" class="form-control" name="txtPesquisa" id="txtPesquisa" value="<?= $txtPesquisa ?>">
                     <button class="btn btn-secondary" type="submit">

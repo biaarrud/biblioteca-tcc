@@ -3,7 +3,7 @@
         <header>
             <h2>Usuários</h2>
         </header>
-        <div class="btn btn-primary mb-2">
+        <div class="btn btn-primary mb-3">
             <a class="text-decoration-none text-light" href="index.php?menu=cad-usuario">Novo Usuário
                 <i class="ph ph-plus"></i>
             </a>
@@ -18,7 +18,7 @@
             ?>
         </div>
         <form action="" method="post">
-            <div class="input-group">
+            <div class="input-group mb-5">
                 <div class="input-group-text">Pesquisar</div>
                 <input class="form-control" type="search" name="txtPesquisa" id="txtPesquisa"
                     value="<?= $txtPesquisa ?>">
@@ -34,8 +34,7 @@
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Data de Admissão</th>
-                    <th>editar</th>
-                    <th>apagar</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <?php
@@ -61,12 +60,6 @@
                             <a class="btn btn-primary"
                                 href="index.php?menu=editar-usuario&loginUsuario=<?= $dados["loginUsuario"] ?>">
                                 <i class="ph ph-pencil-line icone"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger"
-                                href="index.php?menu=apagar-usuario&loginUsuario=<?= $dados["loginUsuario"] ?>">
-                                <i class="ph ph-trash icone"></i>
                             </a>
                         </td>
                     </tr>

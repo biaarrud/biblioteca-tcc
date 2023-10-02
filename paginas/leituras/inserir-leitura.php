@@ -23,7 +23,6 @@
                 '$idGeneroLeitura',
                 '$idAutor',
                 '$idEditora')";
-                echo $sql;
                 $rs = mysqli_query($conexao, $sql);
                 if ($rs) {
                     echo "<p> Rgistro inserido com sucesso</p>";

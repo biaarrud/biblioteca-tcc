@@ -35,12 +35,12 @@ where loginUsuario = '{$loginUsuario}'";
                 <label class="form-label" for="emailUsuario">E-mail</label>
                 <input class="form-control" type="email" name="emailUsuario" id="emailUsuario" value="<?= $dados["emailUsuario"] ?>">
             </div>
-            <div class="mb-3">
+            <div class="mb-5">
                 <label class="form-label" for="telefoneUsuario">Telefone</label>
                 <input class="form-control" type="tel" name="telefoneUsuario" id="telefoneUsuario" value="<?= $dados["telefoneUsuario"] ?>">
             </div>
-            <div class="mb-3">
-                <input type="submit" value="Salvar">
+            <div class="d-grid gap-2 col-3 mx-auto">
+                <input class="btn btn-primary" type="submit" value="Salvar">
             </div>
         </form>
     </div>

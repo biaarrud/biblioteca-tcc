@@ -1,12 +1,16 @@
-<header>
-    <h2>Apagar editora</h2>
-</header>
-<?php
-$idEditora = $_GET["idEditora"];
+<div class="container-fluid">
+    <div class="container text-light">
+        <header>
+            <h2>Apagar editora</h2>
+        </header>
+        <?php
+        $idEditora = $_GET["idEditora"];
 
-$sql = "DELETE FROM tbeditoras WHERE idEditora = '{$idEditora}'";
+        $sql = "DELETE FROM tbeditoras WHERE idEditora = '{$idEditora}'";
 
-$rs = mysqli_query($conexao, $sql) or die ("nao foi possivel excluir" . mysqli_error());
-    
-    echo "<p> registro apagado com sucesso </p>"
-?>
+        $rs = mysqli_query($conexao, $sql) or die("nao foi possivel excluir" . mysqli_error());
+
+        echo "<p> registro apagado com sucesso </p>"
+            ?>
+    </div>
+</div>
