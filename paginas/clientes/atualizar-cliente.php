@@ -13,6 +13,7 @@
         $bairroCliente = strip_tags(mysqli_escape_string($conexao, $_POST["bairroCliente"]));
         $cidadeCliente = strip_tags(mysqli_escape_string($conexao, $_POST["cidadeCliente"]));
         $estadoCliente = strip_tags(mysqli_escape_string($conexao, $_POST["estadoCliente"]));
+        $statusCliente = strip_tags(mysqli_escape_string($conexao, $_POST["statusCliente"]));
 
 
         $sql = "UPDATE tbclientes SET
@@ -23,7 +24,8 @@
         enderecoCliente = '{$enderecoCliente}',
         bairroCliente = '{$bairroCliente}',
         cidadeCliente = '{$cidadeCliente}',
-        estadoCliente = '{$estadoCliente}'
+        estadoCliente = '{$estadoCliente}',
+        statusCliente = '{$statusCliente}'
         WHERE idCliente = '{$idCliente}'";
 
         $rs = mysqli_query($conexao, $sql);

@@ -6,10 +6,9 @@
             </h2>
         </header>
         <div class="btn btn-primary mb-3">
-            <a class="text-decoration-none text-light"
-            href=" index.php?menu=cad-leitura">
-            Nova leitura 
-            <i class="ph ph-plus"></i>
+            <a class="text-decoration-none text-light" href=" index.php?menu=cad-leitura">
+                Nova leitura
+                <i class="ph ph-plus"></i>
             </a>
         </div>
         <div>
@@ -22,13 +21,14 @@
             ?>
         </div>
         <form action="" method="post">
-        <div class="input-group mb-5">
-            <div class="input-group-text">Pesquisar</div>
-            <input class="form-control" type="search" name="txtPesquisa" id="txtPesquisa" value="<?= $txtPesquisa ?>">
-            <button type="submit" class="btn btn-secondary">
-            <i class="ph ph-magnifying-glass"></i>
-            </button>
-        </div>
+            <div class="input-group mb-5">
+                <div class="input-group-text">Pesquisar</div>
+                <input class="form-control" type="search" name="txtPesquisa" id="txtPesquisa"
+                    value="<?= $txtPesquisa ?>">
+                <button type="submit" class="btn btn-secondary">
+                    <i class="ph ph-magnifying-glass"></i>
+                </button>
+            </div>
         </form>
         <table class="table table-dark table-hover">
             <thead>
@@ -81,15 +81,30 @@
                             <?= $dados["nomeFantasia"] ?>
                         </td>
                         <td>
-                            <?= $dados["statusLeitura"] ?>
+                            <?php
+                            $bgStatusLeitura = "";
+                            if ($dados["statusLeitura"] == "Disponível") {
+                                $bgStatusLeitura = "text-bg-success";
+                            } else if ($dados["statusLeitura"] == "Indisponível") {
+                                $bgStatusLeitura = "text-bg-danger";
+                            } else {
+                                $bgStatusLeitura = "text-bg-warning";
+                            }
+
+                            ?>
+                            <span class="badge <?= $bgStatusLeitura ?>">
+                                <?= $dados["statusLeitura"] ?>
+                            </span>
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="index.php?menu=editar-leitura&idLeitura=<?= $dados["idLeitura"] ?>">
+                            <a class="btn btn-primary"
+                                href="index.php?menu=editar-leitura&idLeitura=<?= $dados["idLeitura"] ?>">
                                 <i class="ph ph-pencil-line icone"></i>
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-danger" href="index.php?menu=apagar-leitura&idLeitura=<?= $dados["idLeitura"] ?>">
+                            <a class="btn btn-danger"
+                                href="index.php?menu=apagar-leitura&idLeitura=<?= $dados["idLeitura"] ?>">
                                 <i class="ph ph-trash icone"></i>
                             </a>
                         </td>

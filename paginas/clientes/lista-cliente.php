@@ -39,11 +39,17 @@
                     <th>Bairro</th>
                     <th>Cidade</th>
                     <th>Estado</th>
+                    <th>Status</th>
                     <th>Editar</th>
                 </tr>
             </thead>
             <?php
-            $sql = "SELECT * FROM tbclientes where nomeCliente like '%{$txtPesquisa}%'";
+            $sql = "SELECT *,
+            CASE
+                WHEN statusCliente = 1 THEN 'Liberado'
+                WHEN statusCliente = 0 THEN 'Bloqueado'
+            END AS statusCliente
+            FROM tbclientes where nomeCliente like '%{$txtPesquisa}%'";
             $rs = mysqli_query($conexao, $sql)
                 or die("erro ao executar") . mysqli_error($conexao);
             while ($dados = mysqli_fetch_assoc($rs)) {
@@ -77,7 +83,24 @@
                         <td>
                             <?= $dados["estadoCliente"] ?>
                         </td>
-
+                        <td>
+                        <?php
+                            $bgStatusCliente = "";
+                            if ($dados["statusCliente"]== "Liberado") {
+                                $bgStatusCliente = "text-bg-success";
+                            } 
+                            else if ($dados["statusCliente"]== "Bloqueado") {
+                                $bgStatusCliente = "text-bg-danger";
+                            }
+                            else {
+                                $bgStatusCliente = "texte-bg-warning";
+                            }
+                            
+                        ?>
+                            <span class="badge <?=$bgStatusCliente?>">
+                                <?=$dados["statusCliente"]?>
+                            </span>
+                        </td>
                         <td>
                             <a class="btn btn-primary" href="index.php?menu=editar-cliente&idCliente=<?= $dados["idCliente"] ?>">
                                 <i class="ph ph-pencil-line icone"></i>

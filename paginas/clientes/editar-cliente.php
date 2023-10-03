@@ -10,37 +10,58 @@
         $dados = mysqli_fetch_assoc($rs);
         ?>
         <form action="index.php?menu=atualizar-cliente" method="post">
-            <div class="mb-3">
-                <label class="form-label" for="idCliente">Id</label>
-                <input class="form-control" type="text" name="idCliente" id="idCliente" value="<?= $dados["idCliente"] ?>" readonly>
+        <div class="row mb-3">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="idCliente">ID</label>
+                        <input type="text" id="idCliente" name="idCliente" class="form-control"  value="<?= $dados["idCliente"] ?>" readonly>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="nomeCliente">Nome Completo</label>
+                        <input type="text" id="nomeCliente" name="nomeCliente" class="form-control" value="<?= $dados["nomeCliente"]?>">
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label" for="nomeCliente">Nome Completo</label>
-                <input class="form-control" type="text" name="nomeCliente" id="nomeCliente" value="<?= $dados["nomeCliente"] ?>">
+        <div class="row mb-3">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="cpfCliente">CPF</label>
+                        <input type="text" id="cpfCliente" name="cpfCliente" class="form-control"  value="<?= $dados["cpfCliente"] ?>">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="telefoneCliente">Telefone</label>
+                        <input type="text" id="telefoneCliente" name="telefoneCliente" class="form-control" value="<?= $dados["telefoneCliente"] ?>">
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="emailCliente">Email</label>
-                <input class="form-control" type="text" name="emailCliente" id="emailCliente" value="<?= $dados["emailCliente"] ?>">
+                <input class="form-control" type="text" name="emailCliente" id="emailCliente"
+                value="<?= $dados["emailCliente"] ?>">
             </div>
-            <div class="mb-3">
-                <label class="form-label" for="cpfCliente">CPF</label>
-                <input class="form-control" type="text" name="cpfCliente" id="cpfCliente" value="<?= $dados["cpfCliente"] ?>">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="telefoneCliente">Telefone</label>
-                <input class="form-control" type="text" name="telefoneCliente" id="telefoneCliente" value="<?= $dados["telefoneCliente"] ?>">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="enderecoCliente">Rua</label>
-                <input class="form-control" type="text" name="enderecoCliente" id="enderecoCliente" value="<?= $dados["enderecoCliente"] ?>">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="bairroCliente">Bairro</label>
-                <input class="form-control" type="text" name="bairroCliente" id="bairroCliente" value="<?= $dados["bairroCliente"] ?>">
-            </div>
+            <div class="row mb-3">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="enderecoCliente">Rua</label>
+                            <input type="text" id="enderecoCliente" name="enderecoCliente" class="form-control"  value="<?= $dados["enderecoCliente"] ?>">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="bairroCliente">Bairro</label>
+                            <input type="text" id="bairroCliente" name="bairroCliente" class="form-control" value="<?= $dados["bairroCliente"] ?>">
+                        </div>
+                    </div>
+                </div>
+
             <div class="mb-5">
                 <label class="form-label" for="cidadeCliente">Cidade</label>
-                <input class="form-control" type="text" name="cidadeCliente" id="cidadeCliente" value="<?= $dados["cidadeCliente"] ?>">
+                <input class="form-control" type="text" name="cidadeCliente" id="cidadeCliente"
+                    value="<?= $dados["cidadeCliente"] ?>">
             </div>
             <div>
                 <div class="input-group mb-5">
@@ -89,10 +110,19 @@
                     </select>
                 </div>
             </div>
+            <div class="mb-5">
+                <div class="input-group">
+                    <label for="statusCliente" class="input-group-text">Status</label>
+                    <select name="statusCliente" id="statusCliente" class="form-select">
+                        <option value="1">Liberado</option>
+                        <option value="0">Bloquado</option>
+                    </select>
+                </div>
+            </div>
             <div class="d-grid gap-2 col-3 mx-auto">
                 <input class="btn btn-primary" type="submit" value="Salvar">
             </div>
-
         </form>
+        
     </div>
 </div>
