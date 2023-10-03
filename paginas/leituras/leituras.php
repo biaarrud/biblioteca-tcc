@@ -41,14 +41,14 @@
                     <th>Editora</th>
                     <th>Status</th>
                     <th>Editar</th>
-                    <th>Apagar</th>
                 </tr>
             </thead>
             <?php
             $sql = "SELECT *,
     CASE
         WHEN statusLeitura = 1 THEN 'Disponível'
-        WHEN statusLeitura = 0 THEN 'Indisponível'
+        WHEN statusLeitura = 0 THEN 'Emprestado'
+        WHEN statusLeitura = 2 THEN 'Indisponível'
         END AS statusLeitura
      FROM tbleituras as l inner join tbgeneroleitura as g 
         on l.idGeneroLeitura = g.idGeneroLeitura
@@ -85,7 +85,7 @@
                             $bgStatusLeitura = "";
                             if ($dados["statusLeitura"] == "Disponível") {
                                 $bgStatusLeitura = "text-bg-success";
-                            } else if ($dados["statusLeitura"] == "Indisponível") {
+                            } else if ($dados["statusLeitura"] == "Emprestado") {
                                 $bgStatusLeitura = "text-bg-danger";
                             } else {
                                 $bgStatusLeitura = "text-bg-warning";
@@ -100,12 +100,6 @@
                             <a class="btn btn-primary"
                                 href="index.php?menu=editar-leitura&idLeitura=<?= $dados["idLeitura"] ?>">
                                 <i class="ph ph-pencil-line icone"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger"
-                                href="index.php?menu=apagar-leitura&idLeitura=<?= $dados["idLeitura"] ?>">
-                                <i class="ph ph-trash icone"></i>
                             </a>
                         </td>
                     </tr>

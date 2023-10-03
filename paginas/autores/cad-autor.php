@@ -5,6 +5,9 @@
         </header>
         <div>
             <form action="index.php?menu=inserir-autor" method="post">
+                <div class="alert alert-danger" role="alert">
+                    Atenção! Não é possível excluir após inserção, apenas editar!
+                </div>
                 <div class="mb-3">
                     <label class="form-label" for="nomeAutor">Nome</label>
                     <input class="form-control" type="text" name="nomeAutor">

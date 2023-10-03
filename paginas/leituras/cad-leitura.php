@@ -5,17 +5,22 @@
         </header>
         <div>
             <form action="index.php?menu=inserir-leitura" method="post">
-                <div class="mb-3">
-                    <label class="form-label" for="isbn">ISBN</label>
-                    <input class="form-control" type="text" name="isbn">
+                <div class="alert alert-danger" role="alert">
+                    Atenção! Não é possível excluir após inserção, apenas editar!
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="titulo">Título</label>
-                    <input class="form-control" type="text" name="titulo">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="sinopse">Sinopse</label>
-                    <textarea class="form-control" name="sinopse" cols="30" rows="5"></textarea>
+                <div class="row mb-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="isbn">ISBN</label>
+                            <input type="text" id="isbn" class="form-control" name="isbn">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="titulo">Título</label>
+                            <input type="text" id="titulo" name="titulo" class="form-control">
+                        </div>
+                    </div>
                 </div>
                 <div class="input-group mb-5">
                     <label class="input-group-text" for="idGeneroLeitura">Gênero</label>
@@ -51,7 +56,7 @@
                         ?>
                     </select>
                 </div>
-                <div class="input-group mb-5">
+                <div class="input-group mb-3">
                     <label class="input-group-text" for="idEditora">Editora</label>
                     <select class="form-select" name="idEditora" id="idEditora">
                         <option value="">Selecione uma editora</option>
@@ -67,6 +72,10 @@
                         }
                         ?>
                     </select>
+                </div>
+                <div class="mb-5">
+                    <label class="form-label" for="sinopse">Sinopse</label>
+                    <textarea class="form-control" name="sinopse" cols="30" rows="5"></textarea>
                 </div>
                 <div class="d-grid gap-2 col-3 mx-auto">
                     <input class="btn btn-success" type="submit" value="Salvar">

@@ -41,7 +41,6 @@
                     <th>Cidade</th>
                     <th>Estado</th>
                     <th>Editar</th>
-                    <th>Apagar</th>
                 </tr>
             </thead>
             <?php
@@ -78,11 +77,6 @@
                         <td>
                             <a class="btn btn-primary" href="index.php?menu=editar-editora&idEditora=<?= $dados["idEditora"] ?>">
                                 <i class="ph ph-pencil-line icone"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="index.php?menu=apagar-editora&idEditora=<?= $dados["idEditora"] ?>">
-                                <i class="ph ph-trash icone"></i>
                             </a>
                         </td>
                     </tr>

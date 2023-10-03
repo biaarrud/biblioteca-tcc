@@ -5,29 +5,50 @@
         </header>
         <div>
             <form action="index.php?menu=inserir-editora" method="post">
-                <div class="mb-3">
-                    <label class="form-label" for="cnpjEditora">CNPJ</label>
-                    <input class="form-control" type="text" name="cnpjEditora" id="cnpjEditora">
+                <div class="alert alert-danger" role="alert">
+                    Atenção! Não é possível excluir após inserção, apenas editar!
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="razaoSocialEditora">Razão Social</label>
-                    <input class="form-control" type="text" name="razaoSocialEditora" id="cnpjEditora">
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="cnpjEditora">CNPJ</label>
+                            <input class="form-control" type="text" name="cnpjEditora" id="cnpjEditora">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="razaoSocialEditora">Razão Social</label>
+                            <input class="form-control" type="text" name="razaoSocialEditora" id="cnpjEditora">
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="nomeFantasia">Nome Fantasia</label>
-                    <input class="form-control" type="text" name="nomeFantasia" id="nomeFantasia">
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="nomeFantasia">Nome Fantasia</label>
+                            <input class="form-control" type="text" name="nomeFantasia" id="nomeFantasia">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="enderecoEditora">Rua</label>
+                            <input class="form-control" type="text" name="enderecoEditora" id="enderecoEditora">
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="enderecoEditora">Rua</label>
-                    <input class="form-control" type="text" name="enderecoEditora" id="enderecoEditora">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="bairroEditora">Bairro</label>
-                    <input class="form-control" type="text" name="bairroEditora" id="bairroEditora">
-                </div>
-                <div class="mb-4">
-                    <label class="form-label" for="cidadeEditora">Cidade</label>
-                    <input class="form-control" type="text" name="cidadeEditora" id="cidadeEditora">
+                <div class="row mb-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="bairroEditora">Bairro</label>
+                            <input class="form-control" type="text" name="bairroEditora" id="bairroEditora">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="cidadeEditora">Cidade</label>
+                            <input class="form-control" type="text" name="cidadeEditora" id="cidadeEditora">
+                        </div>
+                    </div>
                 </div>
                 <div class="input-group mb-5">
                     <label class="input-group-text" for="estadoEditora">Selecione o estado</label>
@@ -62,7 +83,7 @@
                     </select>
                 </div>
 
-                <div class="d-grid gap-2 col-3 mx-auto" >
+                <div class="d-grid gap-2 col-3 mx-auto">
                     <input class="btn btn-success" type="submit" value="Salvar">
                 </div>
             </form>

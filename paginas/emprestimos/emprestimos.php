@@ -229,7 +229,6 @@ if ($idCliente > 0) {
                                 <th>Data da Devolução</th>
                                 <th>Status</th>
                                 <th>Baixar</th>
-                                <th>Remover</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -271,12 +270,6 @@ if ($idCliente > 0) {
                                         <a class="btn btn-success"
                                             href="index.php?menu=emprestimos&idCliente=<?= $idCliente ?>&idEmprestimo=<?= $idEmprestimo ?>&menuEmprestimos=baixaLeitura&idLeitura=<?= $dados["idLeitura"] ?>">
                                             <i class="ph ph-download-simple icone"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-danger"
-                                            href="index.php?menu=emprestimos&idCliente=<?= $idCliente ?>&idEmprestimo=<?= $idEmprestimo ?>&menuEmprestimos=removeleitura&idLeitura=<?= $dados["idLeitura"] ?>">
-                                            <i class="ph ph-trash icone"></i>
                                         </a>
                                     </td>
                                 </tr>

@@ -9,6 +9,7 @@
             $idGeneroLeitura = strip_tags(mysqli_escape_string($conexao, $_POST["idGeneroLeitura"]));
             $idAutor = strip_tags(mysqli_escape_string($conexao, $_POST["idAutor"]));
             $idEditora = strip_tags(mysqli_escape_string($conexao, $_POST["idEditora"]));
+            $statusLeitura = strip_tags(mysqli_escape_string($conexao, $_POST["statusLeitura"]));
 
             $sql = " UPDATE tbleituras SET
             isbn = '{$isbn}',
@@ -16,6 +17,7 @@
             sinopseLeitura = '{$sinopseLeitura}',
             idGeneroLeitura = '{$idGeneroLeitura}',
             idAutor = '{$idAutor}',
+            statusLeitura = '{$statusLeitura}',
             idEditora = '{$idEditora}'
             WHERE idLeitura = '{$idLeitura}'";
 
