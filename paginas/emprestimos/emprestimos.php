@@ -27,6 +27,7 @@ if ($menuEmprestimos === "addEmprestimo") {
     mysqli_query($conexao, $sql) or die("erro" . mysqli_error($conexao));
     $idEmprestimo = mysqli_insert_id($conexao);
     header('Location:index.php?menu=emprestimos&idCliente=' . $idCliente);
+    echo $sql;
 }
 
 if ($menuEmprestimos === "addLeitura") {

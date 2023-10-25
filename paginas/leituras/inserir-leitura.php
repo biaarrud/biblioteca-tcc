@@ -8,7 +8,7 @@
                 $idGeneroLeitura = strip_tags(mysqli_escape_string($conexao, $_POST["idGeneroLeitura"]));
                 $idAutor = strip_tags(mysqli_escape_string($conexao, $_POST["idAutor"]));
                 $idEditora = strip_tags(mysqli_escape_string($conexao, $_POST["idEditora"]));
-
+        
                 $sql = "INSERT INTO tbleituras (
                 isbn, 
                 tituloLeitura,
@@ -22,13 +22,14 @@
                 '$sinopse',
                 '$idGeneroLeitura',
                 '$idAutor',
-                '$idEditora')";
+                '$idEditora'";
                 $rs = mysqli_query($conexao, $sql);
                 if ($rs) {
                     echo "<p> Rgistro inserido com sucesso</p>";
                 } else {
                     echo "<p>Erro ao inserir</p>";
                 }
+
              ?>
     </div>
 </div>
