@@ -1,21 +1,23 @@
-<header>
-    <h2>Empréstimos</h2>
-</header>
-<?php
-$idCliente = (isset($_GET["idCliente"])) ? $_GET["idCliente"] : 0;
-$idEmprestimo = (isset($_GET["idEmprestimo"])) ? $_GET["idEmprestimo"] : 0;
-$idLeitura = (isset($_GET["idLeitura"])) ? $_GET["idLeitura"] : 0;
-$menuEmprestimos = (isset($_GET["menuEmprestimos"])) ? $_GET["menuEmprestimos"] : 0;
-$dataDeEmprestimo = date('Y-m-d');
+<div class="container-fluid text-light">
+    <div class="container">
+        <header>
+            <h2>Empréstimos</h2>
+        </header>
+        <?php
+        $idCliente = (isset($_GET["idCliente"])) ? $_GET["idCliente"] : 0;
+        $idEmprestimo = (isset($_GET["idEmprestimo"])) ? $_GET["idEmprestimo"] : 0;
+        $idLeitura = (isset($_GET["idLeitura"])) ? $_GET["idLeitura"] : 0;
+        $menuEmprestimos = (isset($_GET["menuEmprestimos"])) ? $_GET["menuEmprestimos"] : 0;
+        $dataDeEmprestimo = date('Y-m-d');
 
-if (isset($_GET["dataDeDevolucao"])) {
-    $dataDeDevolucao = $_GET['dataDeEntrega'];
-} else {
-    $dataDeDevolucao = date("Y-m-d", strtotime($dataDeEmprestimo . '+ 5 days'));
-}
+        if (isset($_GET["dataDeDevolucao"])) {
+            $dataDeDevolucao = $_GET['dataDeEntrega'];
+        } else {
+            $dataDeDevolucao = date("Y-m-d", strtotime($dataDeEmprestimo . '+ 5 days'));
+        }
 
-if ($menuEmprestimos === "addEmprestimo") {
-    $sql = "INSERT INTO tbemprestimos (
+        if ($menuEmprestimos === "addEmprestimo") {
+            $sql = "INSERT INTO tbemprestimos (
         idCliente,
         dataEmprestimo,
         dataDevolucaoEmprestimo)
@@ -24,14 +26,14 @@ if ($menuEmprestimos === "addEmprestimo") {
             '{$dataDeEmprestimo}',
             '{$dataDeDevolucao}'
         )";
-    mysqli_query($conexao, $sql) or die("erro" . mysqli_error($conexao));
-    $idEmprestimo = mysqli_insert_id($conexao);
-    header('Location:index.php?menu=emprestimos&idCliente=' . $idCliente);
-    echo $sql;
-}
+            mysqli_query($conexao, $sql) or die("erro" . mysqli_error($conexao));
+            $idEmprestimo = mysqli_insert_id($conexao);
+            header('Location:index.php?menu=emprestimos&idCliente=' . $idCliente);
+            echo $sql;
+        }
 
-if ($menuEmprestimos === "addLeitura") {
-    $sql = "INSERT INTO tblistaleiturasemprestadas (
+        if ($menuEmprestimos === "addLeitura") {
+            $sql = "INSERT INTO tblistaleiturasemprestadas (
         idEmprestimo,
         idLeitura,
         dataDeEntrega,
@@ -41,47 +43,46 @@ if ($menuEmprestimos === "addLeitura") {
         '{$idLeitura}',
         '{$dataDeDevolucao}',
         1)";
-    mysqli_query($conexao, $sql);
+            mysqli_query($conexao, $sql);
 
-    $sql = "UPDATE tbleituras SET statusLeitura = 0 WHERE 
+            $sql = "UPDATE tbleituras SET statusLeitura = 0 WHERE 
     idLeitura = '{$idLeitura}'";
-    mysqli_query($conexao, $sql);
-}
-if ($menuEmprestimos === "removeleitura") {
+            mysqli_query($conexao, $sql);
+        }
+        if ($menuEmprestimos === "removeleitura") {
 
-    $sql = "DELETE FROM tblistaleiturasemprestadas WHERE idEmprestimo = '{$idEmprestimo}' and idLeitura = '{$idLeitura}'";
-    mysqli_query($conexao, $sql);
+            $sql = "DELETE FROM tblistaleiturasemprestadas WHERE idEmprestimo = '{$idEmprestimo}' and idLeitura = '{$idLeitura}'";
+            mysqli_query($conexao, $sql);
 
-    $sql = "UPDATE tbleituras SET statusLeitura = 1 WHERE idLeitura = '{$idLeitura}'";
-    mysqli_query($conexao, $sql);
-}
+            $sql = "UPDATE tbleituras SET statusLeitura = 1 WHERE idLeitura = '{$idLeitura}'";
+            mysqli_query($conexao, $sql);
+        }
 
-if ($menuEmprestimos === "baixaLeitura") {
-    $sql = "UPDATE tblistaleiturasemprestadas set statusEmprestimo = 0
+        if ($menuEmprestimos === "baixaLeitura") {
+            $sql = "UPDATE tblistaleiturasemprestadas set statusEmprestimo = 0
     WHERE idEmprestimo = '{$idEmprestimo}' AND idLeitura = '{$idLeitura}'";
-    mysqli_query($conexao, $sql);
+            mysqli_query($conexao, $sql);
 
-    $sql = "UPDATE tbleituras set statusLeitura = 1 WHERE idLeitura = '{$idLeitura}'";
-    mysqli_query($conexao, $sql);
-}
+            $sql = "UPDATE tbleituras set statusLeitura = 1 WHERE idLeitura = '{$idLeitura}'";
+            mysqli_query($conexao, $sql);
+        }
 
-//baixa geral emprestimo
-$sql = "SELECT * FROM tblistaleiturasemprestadas WHERE idEmprestimo = '{$idEmprestimo}'";
-$rs = mysqli_query($conexao, $sql);
-$linha = mysqli_num_rows($rs);
-if ($linha > 0) {
-    $sql = "SELECT * FROM tblistaleiturasemprestadas
+        //baixa geral emprestimo
+        $sql = "SELECT * FROM tblistaleiturasemprestadas WHERE idEmprestimo = '{$idEmprestimo}'";
+        $rs = mysqli_query($conexao, $sql);
+        $linha = mysqli_num_rows($rs);
+        if ($linha > 0) {
+            $sql = "SELECT * FROM tblistaleiturasemprestadas
     WHERE idEmprestimo = '{$idEmprestimo}' and statusEmprestimo = 1";
-    $rs = mysqli_query($conexao, $sql);
-    $linha = mysqli_num_rows($rs);
-    if ($linha === 0) {
-        $sql = "UPDATE tbemprestimos SET statusEntregaEmprestimo = 0 WHERE idEmprestimo = '{$idEmprestimo}'";
-        mysqli_query($conexao, $sql);
-    }
-}
-?>
-<div class="container-fluid text-light">
-    <div class="container">
+            $rs = mysqli_query($conexao, $sql);
+            $linha = mysqli_num_rows($rs);
+            if ($linha === 0) {
+                $sql = "UPDATE tbemprestimos SET statusEntregaEmprestimo = 0 WHERE idEmprestimo = '{$idEmprestimo}'";
+                mysqli_query($conexao, $sql);
+            }
+        }
+        ?>
+
         <form action="" method="get">
             <div class="mb-3">
                 <input type="hidden" class="form-control" name="menu" value="emprestimos">
@@ -215,8 +216,8 @@ if ($idCliente > 0) {
                         </div>
                     </form>
                     <div>
-                        <a class="btn btn-dark" 
-                        href="recibo-emprestimo.php?idCliente=<?= $idCliente ?>&idEmprestimo<?= $idEmprestimo ?>&menuEmprestimos=imprimirEmprestimo"
+                        <a class="btn btn-dark"
+                            href="recibo-emprestimo.php?idCliente=<?= $idCliente ?>&idEmprestimo<?= $idEmprestimo ?>&menuEmprestimos=imprimirEmprestimo"
                             target="_blank">
                             Imprimir Recibo
                         </a>

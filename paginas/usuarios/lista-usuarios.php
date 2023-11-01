@@ -38,7 +38,10 @@
                 </tr>
             </thead>
             <?php
-            $sql = "SELECT loginUsuario, nomeUsuario, date_format(dataAdmissaoUsuario, '%d/%m/%y') as dataAdmissaoUsuario, telefoneUsuario, emailUsuario FROM tbusuarios where nomeUsuario like '%{$txtPesquisa}%'";
+            $quantidade = 10;
+            $pagina = (isset($_GET["pagina"])) ? (int) $_GET["pagina"] : 1;
+            $inicio = ($quantidade * $pagina) - $quantidade;
+            $sql = "SELECT loginUsuario, nomeUsuario, date_format(dataAdmissaoUsuario, '%d/%m/%y') as dataAdmissaoUsuario, telefoneUsuario, emailUsuario FROM tbusuarios where nomeUsuario like '%{$txtPesquisa}%' limit $inicio, $quantidade";
             $rs = mysqli_query($conexao, $sql)
                 or die("erro ao executar") . mysqli_error($conexao);
             while ($dados = mysqli_fetch_assoc($rs)) {
@@ -67,7 +70,23 @@
                 <?php
             }
             ?>
-
         </table>
+        <?php
+        $sqlTotal = "select idUsuario from tbusuarios";
+        $qrTotal = mysqli_query($conexao, $sqlTotal);
+        $numTotal = mysqli_num_rows($qrTotal);
+        $totalPagina = ceil($numTotal / $quantidade);
+        echo "<div class='btn-group position-relative'>";
+        echo '<a class="btn btn-outline-secondary" href="?menu=usuarios&pagina=1">primeira pagina</a>';
+        for ($i = 1; $i <= $totalPagina; $i++) {
+            if ($i == $pagina) {
+                echo "<a class='btn btn-outline-secondary' href='#'>$i</a> ";
+            } else {
+                echo "<a class='btn btn-outline-secondary' href='index.php?menu=usuarios&pagina=$i'>$i</a> ";
+            }
+        }
+        echo "<a class='btn btn-outline-secondary' href=\"?menu=usuarios&pagina=$totalPagina\">ultima pagina</a>";
+        echo "</div>"
+            ?>
     </div>
 </div>

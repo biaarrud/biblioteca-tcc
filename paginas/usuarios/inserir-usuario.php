@@ -9,7 +9,7 @@
         $emailUsuario = strip_tags(mysqli_escape_string($conexao, $_POST["emailUsuario"]));
         $telefoneUsuario = strip_tags(mysqli_escape_string($conexao, $_POST["telefoneUsuario"]));
         $dataAdmissaoUsuario = strip_tags(mysqli_escape_string($conexao, $_POST["dataAdmissaoUsuario"]));
-        $senhaUsuario = strip_tags(mysqli_escape_string($conexao, $_POST["senhaUsuario"]));
+        $senhaUsuario = strip_tags(mysqli_escape_string($conexao,hash('sha256', $_POST["senhaUsuario"])));
 
         $sql = "INSERT INTO tbusuarios (
     loginUsuario,

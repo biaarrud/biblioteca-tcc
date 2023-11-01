@@ -22,7 +22,7 @@
                 '$sinopse',
                 '$idGeneroLeitura',
                 '$idAutor',
-                '$idEditora'";
+                '$idEditora')";
                 $rs = mysqli_query($conexao, $sql);
                 if ($rs) {
                     echo "<p> Rgistro inserido com sucesso</p>";

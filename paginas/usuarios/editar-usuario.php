@@ -24,10 +24,6 @@ where loginUsuario = '{$loginUsuario}'";
                 <input class="form-control" type="text" id="loginUsuario" name="loginUsuario" value="<?= $dados["loginUsuario"] ?>" readonly>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="senhaUsuario">Senha</label>
-                <input class="form-control" type="password" name="senhaUsuario" id="senhaUsuario" value="<?= $dados["senhaUsuario"] ?>">
-            </div>
-            <div class="mb-3">
                 <label class="form-label" for="nomeUsuario">Nome</label>
                 <input class="form-control" type="text" name="nomeUsuario" id="nomeUsuario" value="<?= $dados["nomeUsuario"] ?>">
             </div>

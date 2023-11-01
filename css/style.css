@@ -15,3 +15,8 @@ a{
     gap: 30px;
 
 }
+.bg-main{
+    background-image: url("../img/2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

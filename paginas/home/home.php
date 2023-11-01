@@ -1,6 +1,5 @@
-<body>
-    <div class="container-fluid text-light">
-        <h2>Página inicial</h2>
+<div class="container-fluid bg-main vh-100">
+    <div class="container">
+        
     </div>
-    
-</body>
+</div>

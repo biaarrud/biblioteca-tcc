@@ -22,10 +22,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-5">
-                    <label for="formFile" class="form-label">Default file input example</label>
-                    <input class="form-control" type="file" id="formFile">
-                </div>
                 <div class="input-group mb-5">
                     <label class="input-group-text" for="idGeneroLeitura">Gênero</label>
                     <select class="form-select" name="idGeneroLeitura" id="idGeneroLeitura">

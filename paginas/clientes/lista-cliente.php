@@ -21,9 +21,10 @@
         <form action="" method="post">
             <div class="input-group mb-5">
                 <label class="input-group-text" for="txtPesquisa">Pesquisar</label>
-                <input class="form-control" type="search" name="txtPesquisa" id="txtPesquisa" value="<?= $txtPesquisa ?>">
+                <input class="form-control" type="search" name="txtPesquisa" id="txtPesquisa"
+                    value="<?= $txtPesquisa ?>">
                 <button class="btn btn-secondary" type="submit">
-                <i class="ph ph-magnifying-glass"></i>
+                    <i class="ph ph-magnifying-glass"></i>
                 </button>
             </div>
         </form>
@@ -44,12 +45,15 @@
                 </tr>
             </thead>
             <?php
+            $quantidade = 10;
+            $pagina = (isset($_GET["pagina"])) ? (int) $_GET["pagina"] : 1;
+            $inicio = ($quantidade * $pagina) - $quantidade;
             $sql = "SELECT *,
             CASE
                 WHEN statusCliente = 1 THEN 'Liberado'
                 WHEN statusCliente = 0 THEN 'Bloqueado'
             END AS statusCliente
-            FROM tbclientes where nomeCliente like '%{$txtPesquisa}%'";
+            FROM tbclientes where nomeCliente like '%{$txtPesquisa}%' limit $inicio, $quantidade";
             $rs = mysqli_query($conexao, $sql)
                 or die("erro ao executar") . mysqli_error($conexao);
             while ($dados = mysqli_fetch_assoc($rs)) {
@@ -84,35 +88,50 @@
                             <?= $dados["estadoCliente"] ?>
                         </td>
                         <td>
-                        <?php
+                            <?php
                             $bgStatusCliente = "";
-                            if ($dados["statusCliente"]== "Liberado") {
+                            if ($dados["statusCliente"] == "Liberado") {
                                 $bgStatusCliente = "text-bg-success";
-                            } 
-                            else if ($dados["statusCliente"]== "Bloqueado") {
+                            } else if ($dados["statusCliente"] == "Bloqueado") {
                                 $bgStatusCliente = "text-bg-danger";
-                            }
-                            else {
+                            } else {
                                 $bgStatusCliente = "texte-bg-warning";
                             }
-                            
-                        ?>
-                            <span class="badge <?=$bgStatusCliente?>">
-                                <?=$dados["statusCliente"]?>
+
+                            ?>
+                            <span class="badge <?= $bgStatusCliente ?>">
+                                <?= $dados["statusCliente"] ?>
                             </span>
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="index.php?menu=editar-cliente&idCliente=<?= $dados["idCliente"] ?>">
+                            <a class="btn btn-primary"
+                                href="index.php?menu=editar-cliente&idCliente=<?= $dados["idCliente"] ?>">
                                 <i class="ph ph-pencil-line icone"></i>
                             </a>
                         </td>
-                      
+
                     </tr>
                 </tbody>
                 <?php
             }
             ?>
-
         </table>
+        <?php
+        $sqlTotal = "select idCliente from tbclientes";
+        $qrTotal = mysqli_query($conexao, $sqlTotal);
+        $numTotal = mysqli_num_rows($qrTotal);
+        $totalPagina = ceil($numTotal / $quantidade);
+        echo "<div class='btn-group position-relative'>";
+        echo '<a class="btn btn-outline-secondary" href="?menu=clientes&pagina=1">primeira pagina</a>';
+        for ($i = 1; $i <= $totalPagina; $i++) {
+            if ($i == $pagina) {
+                echo "<a class='btn btn-outline-secondary' href='#'>$i</a> ";
+            } else {
+                echo "<a class='btn btn-outline-secondary' href='index.php?menu=clientes&pagina=$i'>$i</a> ";
+            }
+        }
+        echo "<a class='btn btn-outline-secondary' href=\"?menu=clientes&pagina=$totalPagina\">ultima pagina</a>";
+        echo "</div>"
+            ?>
     </div>
 </div>
