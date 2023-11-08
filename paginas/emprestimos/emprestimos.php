@@ -46,7 +46,7 @@
             mysqli_query($conexao, $sql);
 
             $sql = "UPDATE tbleituras SET statusLeitura = 0 WHERE 
-    idLeitura = '{$idLeitura}'";
+            idLeitura = '{$idLeitura}'";
             mysqli_query($conexao, $sql);
         }
         if ($menuEmprestimos === "removeleitura") {
@@ -60,20 +60,19 @@
 
         if ($menuEmprestimos === "baixaLeitura") {
             $sql = "UPDATE tblistaleiturasemprestadas set statusEmprestimo = 0
-    WHERE idEmprestimo = '{$idEmprestimo}' AND idLeitura = '{$idLeitura}'";
+            WHERE idEmprestimo = '{$idEmprestimo}' AND idLeitura = '{$idLeitura}'";
             mysqli_query($conexao, $sql);
 
             $sql = "UPDATE tbleituras set statusLeitura = 1 WHERE idLeitura = '{$idLeitura}'";
             mysqli_query($conexao, $sql);
         }
 
-        //baixa geral emprestimo
         $sql = "SELECT * FROM tblistaleiturasemprestadas WHERE idEmprestimo = '{$idEmprestimo}'";
         $rs = mysqli_query($conexao, $sql);
         $linha = mysqli_num_rows($rs);
         if ($linha > 0) {
             $sql = "SELECT * FROM tblistaleiturasemprestadas
-    WHERE idEmprestimo = '{$idEmprestimo}' and statusEmprestimo = 1";
+            WHERE idEmprestimo = '{$idEmprestimo}' and statusEmprestimo = 1";
             $rs = mysqli_query($conexao, $sql);
             $linha = mysqli_num_rows($rs);
             if ($linha === 0) {
@@ -216,8 +215,8 @@ if ($idCliente > 0) {
                         </div>
                     </form>
                     <div>
-                        <a class="btn btn-dark"
-                            href="recibo-emprestimo.php?idCliente=<?= $idCliente ?>&idEmprestimo<?= $idEmprestimo ?>&menuEmprestimos=imprimirEmprestimo"
+                        <a class="btn btn-secondary"
+                            href="./paginas/emprestimos/recibo-emprestimo.php?idCliente=<?= $idCliente ?>&idEmprestimo=<?= $idEmprestimo ?>&menuEmprestimos=imprimirEmprestimo"
                             target="_blank">
                             Imprimir Recibo
                         </a>
@@ -225,7 +224,7 @@ if ($idCliente > 0) {
                     <table class="table table-dark table-hover">
                         <thead>
                             <tr>
-                                <th>Id Leitura</th>
+                                <th>ID</th>
                                 <th>Título</th>
                                 <th>Data do Empréstimo</th>
                                 <th>Data da Devolução</th>

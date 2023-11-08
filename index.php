@@ -74,10 +74,10 @@ if (isset($_SESSION["loginUsuario"]) and isset($_SESSION["senhaUsuario"])) {
                             <a class="nav-link text-light" href="index.php?menu=clientes">Clientes</a>
                         </li>
                     </ul>
-                    <div class="text-light">
+                    <div class="text-dark">
                         <a href="paginas/login/logout.php" class="nav-link">
                             <i class="bi bi-person-fill"></i>
-                            <?=$nomeUsuario?> sair <i class="ph ph-sign-out"></i>
+                            <?= $nomeUsuario ?> sair <i class="ph ph-sign-out"></i>
                         </a>
                     </div>
                 </div>
@@ -86,136 +86,119 @@ if (isset($_SESSION["loginUsuario"]) and isset($_SESSION["senhaUsuario"])) {
     </header>
 
     <main>
-            <?php
-            $menu = (isset($_GET["menu"])) ? $_GET["menu"] : "home";
-            switch ($menu) {
-                case "Home":
-                    include("paginas/home/home.php");
-                    break;
-                case "emprestimos":
-                    include("paginas/emprestimos/emprestimos.php");
-                    break;
-                case "leituras":
-                    include("paginas/leituras/leituras.php");
-                    break;
-                case "cad-leitura":
-                    include("paginas/leituras/cad-leitura.php");
-                    break;
-                case 'inserir-leitura':
-                    include("paginas/leituras/inserir-leitura.php");
-                    break;
-                case 'editar-leitura':
-                    include("paginas/leituras/editar-leitura.php");
-                    break;
-                case 'apagar-leitura':
-                    include("paginas/leituras/apagar-leitura.php");
-                    break;
-                case 'atualizar-leitura':
-                    include("paginas/leituras/atualizar-leitura.php");
-                    break;
-                case 'generos':
-                    include("paginas/generos/generos.php");
-                    break;
-                case 'editar-genero':
-                    include("paginas/generos/editar-genero.php");
-                    break;
-                case 'atualizar-genero':
-                    include("paginas/generos/atualizar-genero.php");
-                    break;
-                case 'cad-genero':
-                    include("paginas/generos/cad-genero.php");
-                    break;
-                case 'inserir-genero':
-                    include("paginas/generos/inserir-genero.php");
-                    break;
-                case 'apagar-genero':
-                    include("paginas/generos/apagar-genero.php");
-                    break;
-                case 'autores':
-                    include("paginas/autores/lista-autores.php");
-                    break;
-                case 'cad-autor':
-                    include("paginas/autores/cad-autor.php");
-                    break;
-                case 'inserir-autor':
-                    include("paginas/autores/inserir-autor.php");
-                    break;
-                case 'editar-autor':
-                    include("paginas/autores/editar-autor.php");
-                    break;
-                case 'atualizar-autor':
-                    include("paginas/autores/atualizar-autor.php");
-                    break;
-                case 'apagar-autor':
-                    include("paginas/autores/apagar-autor.php");
-                    break;
-                case 'clientes':
-                    include("paginas/clientes/lista-cliente.php");
-                    break;
-                case 'cad-cliente':
-                    include("paginas/clientes/cad-cliente.php");
-                    break;
-                case 'inserir-cliente':
-                    include("paginas/clientes/inserir-cliente.php");
-                    break;
-                case 'editar-cliente':
-                    include("paginas/clientes/editar-cliente.php");
-                    break;
-                case 'apagar-cliente':
-                    include("paginas/clientes/apagar-cliente.php");
-                    break;
-                case 'atualizar-cliente':
-                    include("paginas/clientes/atualizar-cliente.php");
-                    break;
-                case 'editoras':
-                    include("paginas/editoras/lista-editoras.php");
-                    break;
-                case 'cad-editora':
-                    include("paginas/editoras/cad-editora.php");
-                    break;
-                case 'inserir-editora':
-                    include("paginas/editoras/inserir-editora.php");
-                    break;
-                case 'editar-editora':
-                    include("paginas/editoras/editar-editora.php");
-                    break;
-                case 'atualizar-editora':
-                    include("paginas/editoras/atualizar-editora.php");
-                    break;
-                case 'apagar-editora':
-                    include("paginas/editoras/apagar-editora.php");
-                    break;
-                case 'usuarios':
-                    include("paginas/usuarios/lista-usuarios.php");
-                    break;
-                case 'cad-usuario':
-                    include("paginas/usuarios/cad-usuario.php");
-                    break;
-                case 'inserir-usuario':
-                    include("paginas/usuarios/inserir-usuario.php");
-                    break;
-                case 'editar-usuario':
-                    include("paginas/usuarios/editar-usuario.php");
-                    break;
-                case 'atualizar-usuario':
-                    include("paginas/usuarios/atualizar-usuario.php");
-                    break;
-                case 'apagar-usuario':
-                    include("paginas/usuarios/apagar-usuario.php");
-                    break;
-                default:
-                    include("paginas/home/home.php");
-                    break;
-            }
-            ?>
+        <?php
+        $menu = (isset($_GET["menu"])) ? $_GET["menu"] : "home";
+        switch ($menu) {
+            case "Home":
+                include("paginas/home/home.php");
+                break;
+            case "emprestimos":
+                include("paginas/emprestimos/emprestimos.php");
+                break;
+            case "leituras":
+                include("paginas/leituras/leituras.php");
+                break;
+            case "cad-leitura":
+                include("paginas/leituras/cad-leitura.php");
+                break;
+            case 'inserir-leitura':
+                include("paginas/leituras/inserir-leitura.php");
+                break;
+            case 'editar-leitura':
+                include("paginas/leituras/editar-leitura.php");
+                break;
+            case 'atualizar-leitura':
+                include("paginas/leituras/atualizar-leitura.php");
+                break;
+            case 'generos':
+                include("paginas/generos/generos.php");
+                break;
+            case 'editar-genero':
+                include("paginas/generos/editar-genero.php");
+                break;
+            case 'atualizar-genero':
+                include("paginas/generos/atualizar-genero.php");
+                break;
+            case 'cad-genero':
+                include("paginas/generos/cad-genero.php");
+                break;
+            case 'inserir-genero':
+                include("paginas/generos/inserir-genero.php");
+                break;
+            case 'autores':
+                include("paginas/autores/lista-autores.php");
+                break;
+            case 'cad-autor':
+                include("paginas/autores/cad-autor.php");
+                break;
+            case 'inserir-autor':
+                include("paginas/autores/inserir-autor.php");
+                break;
+            case 'editar-autor':
+                include("paginas/autores/editar-autor.php");
+                break;
+            case 'atualizar-autor':
+                include("paginas/autores/atualizar-autor.php");
+                break;
+            case 'clientes':
+                include("paginas/clientes/lista-cliente.php");
+                break;
+            case 'cad-cliente':
+                include("paginas/clientes/cad-cliente.php");
+                break;
+            case 'inserir-cliente':
+                include("paginas/clientes/inserir-cliente.php");
+                break;
+            case 'editar-cliente':
+                include("paginas/clientes/editar-cliente.php");
+                break;
+            case 'atualizar-cliente':
+                include("paginas/clientes/atualizar-cliente.php");
+                break;
+            case 'editoras':
+                include("paginas/editoras/lista-editoras.php");
+                break;
+            case 'cad-editora':
+                include("paginas/editoras/cad-editora.php");
+                break;
+            case 'inserir-editora':
+                include("paginas/editoras/inserir-editora.php");
+                break;
+            case 'editar-editora':
+                include("paginas/editoras/editar-editora.php");
+                break;
+            case 'atualizar-editora':
+                include("paginas/editoras/atualizar-editora.php");
+                break;
+            case 'usuarios':
+                include("paginas/usuarios/lista-usuarios.php");
+                break;
+            case 'cad-usuario':
+                include("paginas/usuarios/cad-usuario.php");
+                break;
+            case 'inserir-usuario':
+                include("paginas/usuarios/inserir-usuario.php");
+                break;
+            case 'editar-usuario':
+                include("paginas/usuarios/editar-usuario.php");
+                break;
+            case 'atualizar-usuario':
+                include("paginas/usuarios/atualizar-usuario.php");
+                break;
+            default:
+                include("paginas/home/home.php");
+                break;
+        }
+        ?>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        <script src="./js/jquery.js"></script>
-        <script src="./js/jquery.form.js"></script>
-        <script src="./js/upload.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery.form.js"></script>
+    <script src="./js/upload.js"></script>
     <footer>
     </footer>
 </body>
+
 </html>

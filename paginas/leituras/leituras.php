@@ -34,7 +34,7 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Id leitura</th>
+                    <th>ID</th>
                     <th>ISBN</th>
                     <th>Título</th>
                     <th>Gênero</th>
@@ -62,32 +62,23 @@
             $rs = mysqli_query($conexao, $sql)
                 or die("erro ao executar") . mysqli_error($conexao);
             while ($dados = mysqli_fetch_assoc($rs)) {
-
                 ?>
                 <tbody>
                     <tr>
                         <td>
-                            <img width="70" height="100" src="./paginas/leituras/img-leitura/<?= $dados["imgLeitura"] ?>"
-                                alt="">
-                        </td>
-                        <td>
-                            <?= $dados["idLeitura"] ?>
-                        </td>
-                        <td>
-                            <?= $dados["isbn"] ?>
-                        </td>
-                        <td>
-                            <?= $dados["tituloLeitura"] ?>
-                        </td>
-                        <td>
-                            <?= $dados["tituloGeneroLeitura"] ?>
-                        </td>
-                        <td>
-                            <?= $dados["nomeAutor"] ?>
-                        </td>
-                        <td>
-                            <?= $dados["nomeFantasia"] ?>
-                        </td>
+                            <img width="70" height="100" src="./paginas/leituras/img-leitura/<?=$dados["imgLeitura"]?>"alt=""></td>
+                        <td><?=$dados["idLeitura"]?></td>
+
+                        <td><?=$dados["isbn"]?></td>
+
+                        <td><?=$dados["tituloLeitura"]?></td>
+
+                        <td><?=$dados["tituloGeneroLeitura"]?></td>
+
+                        <td><?=$dados["nomeAutor"]?></td>
+                        
+                        <td><?=$dados["nomeFantasia"]?></td>
+
                         <td>
                             <?php
                             $bgStatusLeitura = "";
@@ -115,8 +106,8 @@
                 <?php
             }
             ?>
-
         </table>
+
         <?php
         $sqlTotal = "select idLeitura from tbleituras";
         $qrTotal = mysqli_query($conexao, $sqlTotal);
@@ -134,5 +125,6 @@
         echo "<a class='btn btn-outline-secondary' href=\"?menu=leituras&pagina=$totalPagina\">ultima pagina</a>";
         echo "</div>"
             ?>
+
     </div>
 </div>
